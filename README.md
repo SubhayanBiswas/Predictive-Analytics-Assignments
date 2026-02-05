@@ -58,4 +58,4 @@ To run these notebooks, you will need the following Python libraries:
 * `sklearn` (scikit-learn)
 
 ## Usage
-Clone the repository and run the notebooks via Jupyter Lab or
+Clone the repository and run the notebooks via Jupyter Lab or VSCode. Ensure the `BostonHousing.csv` file is present in the working directory for the real-world data analysis sections.
