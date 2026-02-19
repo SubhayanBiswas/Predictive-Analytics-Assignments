@@ -1,6 +1,6 @@
 # Predictive Analytics Coursework
 
-This repository contains two primary projects focused on exploratory data analysis and the fundamental properties of linear regression. The projects utilize the Boston Housing dataset and Monte Carlo simulations to demonstrate key statistical concepts and modeling techniques.
+This repository contains primary projects focused on exploratory data analysis, the fundamental properties of linear regression, and advanced model diagnostics. The projects utilize various datasets (Boston Housing, Credit, and fgl) and Monte Carlo simulations to demonstrate key statistical concepts and modeling techniques.
 
 ---
 
@@ -48,14 +48,52 @@ This project explores the theoretical foundations of Ordinary Least Squares (OLS
 
 ---
 
+## Project 3: Qualitative Predictors & Interactions
+
+### Overview
+This project demonstrates the inclusion of qualitative (nominal) predictors and evaluates the impact of ignoring interaction terms in multiple linear regression models.
+
+### Core Problems Addressed
+**1. Qualitative Predictors in Regression**
+* Regresses credit card `Balance` on combinations of `Gender`, `Ethnicity`, and `Income` using the Credit dataset.
+* Compares the goodness of fit across multiple models using AIC, BIC, and Adjusted R-squared metrics to select the most optimal model.
+* Predicts the credit card balance for specific demographics (e.g., a female Asian) based on the chosen multiple regression model.
+
+**2. Impact of Ignoring Interaction Terms**
+* Conducts Monte Carlo simulations running 1000 iterations to compare a true model featuring an interaction term ($x_1 * x_2$) against a naive model without it.
+* Calculates and compares the Mean Squared Error (MSE) for both models under varying parametric configurations.
+* Demonstrates that ignoring a large interaction term significantly increases the naive model's MSE.
+
+---
+
+## Project 4: Model Diagnostics & Multicollinearity
+
+### Overview
+This project focuses on variable selection, identifying multicollinearity among predictors, and detecting anomalous data points (outliers) in multiple linear regression.
+
+### Core Problems Addressed
+**1. Variable Selection**
+* Uses the fgl (glass) dataset to regress Refractive Index (`RI`) on different metallic oxides.
+* Identifies `Fe` and `Si` as the strongest predictors for the refractive index based on p-values from the OLS regression summary.
+
+**2. Detecting Multicollinearity**
+* Examines the Credit dataset by plotting `Age` vs. `Limit` and `Rating` vs. `Limit` to visually assess correlations.
+* Observes that while `Rating` is a highly significant predictor of `Balance`, `Limit` becomes insignificant when combined with `Rating` in a model, hinting at redundancy.
+* Confirms severe multicollinearity between `Rating` and `Limit` by calculating the Variance Inflation Factor (VIF).
+
+**3. Outlier Detection**
+* Fits a multiple linear regression model predicting the median value of homes (`medv`) using `crim`, `nox`, `black`, and `lstat` from the Boston dataset.
+* Detects regression outliers by calculating studentized residuals and flagging observations with an absolute value greater than 3.
+
+---
+
 ## Dependencies
-To run these notebooks, you will need the following Python libraries:
+To run these notebooks, you will need the following Python libraries installed:
 * `pandas`
 * `numpy`
 * `matplotlib`
 * `seaborn`
 * `scipy`
 * `sklearn` (scikit-learn)
-
-## Usage
-Clone the repository and run the notebooks via Jupyter Lab or VSCode. Ensure the `BostonHousing.csv` file is present in the working directory for the real-world data analysis sections.
+* `statsmodels`
+* `ISLP`
